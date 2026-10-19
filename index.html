@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff6e8">
+  <meta name="description" content="La’vash — шашлык, шаверма, донер, рыба на мангале и горячая выпечка в Мурино. Проспект Авиаторов Балтики, 7А.">
+  <title>La’vash — шашлык & шаверма в Мурино</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="La’vash — на главную">
+        <span class="brand-mark">L</span>
+        <span class="brand-text"><b>LA’VASH</b><small>шашлык & шаверма</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#menu">Меню</a>
+        <a href="#place">Заведение</a>
+        <a href="#contacts">Контакты</a>
+        <a class="nav-cta" href="https://yandex.ru/maps/-/CXF4zAoS" target="_blank" rel="noopener">Маршрут</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Мурино · ежедневно 11:00–23:00</div>
+          <h1>Горячий мангал.<br><span>Честная еда.</span></h1>
+          <p class="hero-lead">Шашлык, шаверма, донер, рыба на мангале и блюда кавказской кухни — готовим с огня и подаём без лишнего.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">Смотреть меню</a>
+            <a class="btn btn-light" href="https://yandex.ru/maps/-/CXF4zAoS" target="_blank" rel="noopener">Построить маршрут</a>
+          </div>
+          <div class="quick-info" aria-label="Краткая информация">
+            <div><span>📍</span><b>Авиаторов Балтики, 7А</b><small>Мурино</small></div>
+            <div><span>🕚</span><b>11:00–23:00</b><small>каждый день</small></div>
+            <div><span>🛵</span><b>Доставка</b><small>скоро</small></div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="assets/img/location-hero-final.webp" alt="Фасад La’vash в Мурино" width="1280" height="1070" fetchpriority="high">
+          <div class="hero-badge"><b>LA’VASH</b><span>шашлык · шаверма · тандыр</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Основные категории">
+      <div class="ticker-inner">ШАШЛЫК <i>•</i> ШАВЕРМА <i>•</i> ДОНЕР <i>•</i> РЫБА НА МАНГАЛЕ <i>•</i> ТАНДЫР <i>•</i> СУПЫ <i>•</i> САЛАТЫ</div>
+    </section>
+
+    <section class="menu-section section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Меню</span><h2>Выбирайте по настроению</h2></div>
+          <p>Цены в заведении. Выберите категорию или найдите нужное блюдо по названию.</p>
+        </div>
+
+        <div class="menu-tools">
+          <div class="filters" role="group" aria-label="Фильтр меню">
+            <button class="filter active" data-filter="all">Всё</button>
+            <button class="filter" data-filter="grill">Мангал</button>
+            <button class="filter" data-filter="shawarma">Шаверма</button>
+            <button class="filter" data-filter="fish">Рыба</button>
+            <button class="filter" data-filter="sides">Гарниры</button>
+            <button class="filter" data-filter="salads">Салаты</button>
+            <button class="filter" data-filter="soups">Супы</button>
+            <button class="filter" data-filter="hot">Горячее</button>
+          </div>
+          <label class="search"><span aria-hidden="true">⌕</span><input id="menuSearch" type="search" placeholder="Найти блюдо…" autocomplete="off" aria-label="Поиск по меню"></label>
+        </div>
+
+        <div class="menu-layout">
+          <aside class="menu-visual" aria-label="Фотографии блюд">
+            <div class="visual-media" id="categoryVisual"></div><div class="photo-toolbar"><span id="photoCount">Фото блюд</span><div><button id="photoPrev" type="button" aria-label="Предыдущее фото">‹</button><button id="photoNext" type="button" aria-label="Следующее фото">›</button></div></div>
+            <div class="visual-caption"><span>готовим на огне</span><b id="categoryCaption">Мангал — наша основа</b></div>
+          </aside>
+          <div class="menu-list" id="menuList"></div>
+        </div>
+        <p class="menu-note">Вес порций и наличие уточняйте в заведении. Фото блюд носят иллюстративный характер. Фактическая подача может незначительно отличаться.</p>
+      </div>
+    </section>
+
+    <section class="accent-section">
+      <div class="container accent-grid">
+        <div>
+          <span class="eyebrow">Скоро</span>
+          <h2>Доставка уже в планах</h2>
+          <p>Сейчас можно прийти к нам в Мурино. Чтобы уточнить наличие блюд или оформить заказ с собой, позвоните нам.</p>
+        </div>
+        <div class="accent-card">
+          <span>01</span><b>Выберите блюда</b>
+          <span>02</span><b>Позвоните нам</b>
+          <span>03</span><b>Заберите горячими</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="section place" id="place">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Заведение</span><h2>Нас легко найти</h2></div>
+          <p>La’vash находится по адресу: проспект Авиаторов Балтики, 7А, Мурино. Внутри есть посадочные места.</p>
+        </div>
+        <div class="gallery">
+          <figure class="gallery-main"><img src="assets/img/venue-sign-selected.webp" alt="Указатель к La’vash у входа" loading="lazy"></figure>
+          <figure><img src="assets/img/location-angle.webp" alt="Фасад La’vash" loading="lazy"></figure>
+          <figure><img src="assets/img/location-inside.webp" alt="Зал La’vash" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contacts" id="contacts">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Контакты</span>
+          <h2>Заходите за горячим</h2>
+          <p class="address">Ленинградская область, Мурино,<br><b>проспект Авиаторов Балтики, 7А</b></p>
+          <div class="contact-panel">
+            <div class="contact-phone-row"><div><span class="contact-hint">Телефон заведения</span><a class="contact-phone" href="tel:+79952313313">+7 (995) 2 313 313</a></div><a class="btn btn-primary" href="tel:+79952313313">Позвонить</a></div>
+            <div class="contact-map-actions"><a class="btn btn-light" href="https://yandex.ru/maps/-/CXF4zAoS" target="_blank" rel="noopener">Яндекс Карты <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="https://2gis.ru/search/%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%B2%D0%B8%D0%B0%D1%82%D0%BE%D1%80%D0%BE%D0%B2%20%D0%91%D0%B0%D0%BB%D1%82%D0%B8%D0%BA%D0%B8%207%D0%90%20%D0%9C%D1%83%D1%80%D0%B8%D0%BD%D0%BE" target="_blank" rel="noopener">2ГИС <span aria-hidden="true">↗</span></a></div>
+            
+          </div>
+        </div>
+        <div class="hours-card">
+          <span>Режим работы</span>
+          <strong>11:00 — 23:00</strong>
+          <p>ежедневно</p>
+          <hr>
+          <small>Перед визитом в праздничные дни рекомендуем уточнить режим работы.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="brand footer-brand"><span class="brand-mark">L</span><span class="brand-text"><b>LA’VASH</b><small>шашлык & шаверма</small></span></div>
+      <div><b>Мурино</b><span>пр. Авиаторов Балтики, 7А</span><span>11:00–23:00 ежедневно</span></div>
+      <div><b>Информация</b><a href="legal.html">Правовая информация</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> La’vash</span><span>Цены указаны в рублях РФ.</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
