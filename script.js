@@ -26,9 +26,23 @@ const menuData = [
   {group:'Супы',cat:'soups',name:'Суп чечевичный',weight:'200 г',price:'260 ₽',desc:'Красная чечевица, овощная основа, специи; подаётся с лимоном.'},
   {group:'Супы',cat:'soups',name:'Куриный суп',weight:'300 г',price:'280 ₽',desc:'Куриный бульон, курица, домашняя лапша, зелень.'},
   {group:'Супы',cat:'soups',name:'Суп пити',weight:'350 г',price:'500 ₽',desc:'Баранина, нут, картофель, лук, насыщенный бульон и специи.'},
-  {group:'Супы',cat:'soups',name:'Суп буглама',weight:'350 г',price:'350 ₽',desc:'Баранина, помидоры, лук, перец, бульон и специи.'},
+  {group:'Супы',cat:'soups',name:'Суп буглама',weight:'350 г',price:'500 ₽',desc:'Баранина, помидоры, лук, перец, бульон и специи.'},
   {group:'Горячие закуски и хлеб',cat:'hot',name:'Долма в виноградных листьях',weight:'250 г',price:'450 ₽',desc:'Виноградные листья, мясная начинка, рис, лук; подаётся с белым гатыгом.'},
-  {group:'Горячие закуски и хлеб',cat:'hot',name:'Лаваш тандырный',weight:'250 г',price:'50 ₽',desc:'Свежий тандырный хлеб.'}
+  {group:'Горячие закуски и хлеб',cat:'hot',name:'Лаваш тандырный',weight:'250 г',price:'100 ₽',desc:'Свежий тандырный хлеб.'},
+  {group:'Минеральная вода',cat:'drinks',name:'Боржоми',weight:'0,5 л',price:'300 ₽',desc:'Газированная минеральная вода.'},
+  {group:'Минеральная вода',cat:'drinks',name:'Рычал-Су',weight:'0,5 л',price:'200 ₽',desc:'Газированная минеральная вода.'},
+  {group:'Минеральная вода',cat:'drinks',name:'Нарзан',weight:'0,5 л',price:'200 ₽',desc:'Минеральная вода.'},
+  {group:'Минеральная вода',cat:'drinks',name:'Святой Источник газированная',weight:'0,5 л',price:'100 ₽',desc:'Питьевая газированная вода.'},
+  {group:'Минеральная вода',cat:'drinks',name:'Святой Источник негазированная',weight:'0,5 л',price:'100 ₽',desc:'Питьевая негазированная вода.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Натахтари',weight:'0,5 л',price:'200 ₽',desc:'Грузинский газированный лимонад. Вкусы: груша, тархун, фейхоа.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Добрый Cola',weight:'0,5 л',price:'180 ₽',desc:'Газированный напиток со вкусом колы.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Добрый Апельсин',weight:'0,5 л',price:'180 ₽',desc:'Газированный апельсиновый напиток.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Pepsi',weight:'0,5 л',price:'180 ₽',desc:'Газированный напиток со вкусом пепси.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Добрый Cola (0,3 л)',weight:'0,3 л',price:'130 ₽',desc:'Газированный напиток со вкусом колы.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Добрый Апельсин (0,3 л)',weight:'0,3 л',price:'130 ₽',desc:'Газированный апельсиновый напиток.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Pepsi (0,3 л)',weight:'0,3 л',price:'130 ₽',desc:'Газированный напиток со вкусом пепси.'},
+  {group:'Лимонады и газированные напитки',cat:'drinks',name:'Роял (гранат)',weight:'0,3 л',price:'130 ₽',desc:'Газированный гранатовый напиток.'},
+  {group:'Супы',cat:'soups',name:'Довга',weight:'0,5 л',price:'150 ₽',desc:'Холодный суп на кефире с зеленью и солью.'},
 ];
 
 const catVisuals = {
@@ -39,7 +53,8 @@ const catVisuals = {
   sides:{caption:'Гарниры к мясу и рыбе',images:[['assets/img/vegetables-selected-display.webp','Овощи на мангале'],['assets/img/sides2-display.webp','Грибы на мангале'],['assets/img/sides3-display.webp','Картофель с курдюком']]},
   salads:{caption:'Свежие салаты',images:[['assets/img/salad-caesar-display.webp','Салат «Цезарь»'],['assets/img/salad-choban-final.webp','Чобан салат'],['assets/img/salads3-display.webp','Красная квашеная капуста']]},
   soups:{caption:'Горячие супы',images:[['assets/img/soups1-display.webp','Чечевичный суп'],['assets/img/soups2-display.webp','Куриный суп'],['assets/img/soups3-display.webp','Суп буглама']]},
-  hot:{caption:'Традиционные горячие блюда',images:[['assets/img/dolma-single-display.webp','Долма в виноградных листьях']]}
+  hot:{caption:'Традиционные горячие блюда',images:[['assets/img/dolma-single-display.webp','Долма в виноградных листьях']]},
+  drinks:{caption:'Напитки к любимым блюдам',images:[]}
 };
 
 let currentFilter='all';
@@ -54,6 +69,7 @@ function updateVisual(){
   caption.textContent=v.caption;
   const gallery=v.images;
   visual.className='visual-media visual-single-slide';
+  if(currentFilter==='drinks'){visual.innerHTML='<div class="drinks-illustration"><span>LA’VASH</span><strong>Напитки</strong><small>Прохладные напитки к любимым блюдам</small></div>';document.getElementById('photoCount').textContent='Вода · лимонады';document.getElementById('photoPrev').disabled=true;document.getElementById('photoNext').disabled=true;return;}
   visual.innerHTML=`<img src="${gallery[currentPhoto][0]}" alt="${gallery[currentPhoto][1]}" draggable="false">`;
   document.getElementById('photoCount').textContent=`${currentPhoto+1} / ${gallery.length} · ${gallery[currentPhoto][1]}`;
   document.getElementById('photoPrev').disabled=gallery.length===1;
@@ -61,6 +77,7 @@ function updateVisual(){
 }
 function stepPhoto(delta){
   const len=catVisuals[currentFilter].images.length;
+  if(!len)return;
   currentPhoto=(currentPhoto+delta+len)%len;
   updateVisual();
 }
@@ -89,8 +106,8 @@ const dishPhotos = {
   "Картошка с курдюком": "assets/img/sides3-display.webp",
   "Картофель фри": "assets/img/menu-131051.webp",
   "Картофель айдахо": "assets/img/menu-131327.webp",
-  "Шаверма из курицы классическая": "assets/img/shawarma-new.webp",
-  "Шаверма-мини": "assets/img/shawarma-new.webp",
+  "Шаверма из курицы классическая": "assets/img/shawarma-classic-2026.webp",
+  "Шаверма-мини": "assets/img/shawarma-mini-2026.webp",
   "Шаверма на тарелке": "assets/img/shawarma-plate-display.webp",
   "Донер с говядиной": "assets/img/doner-beef-display.webp",
   "Шаверма по-бакински": "assets/img/menu-131554.webp",
@@ -112,7 +129,8 @@ function render(){
   for(const x of filtered){
     const c=document.createElement('article');c.className='menu-card dish-card';
     const src=dishPhotos[x.name];
-    const img=src?`<img class="dish-photo" loading="lazy" src="${src}" alt="${x.name}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'dish-placeholder',textContent:'Фотография скоро появится'}))">`:'<div class="dish-placeholder"><span>Фото скоро появится</span></div>';
+    const img=x.cat==='drinks'?'':src?`<img class="dish-photo" loading="lazy" src="${src}" alt="${x.name}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'dish-placeholder',textContent:'Фотография скоро появится'}))">`:'<div class="dish-placeholder"><span>Фото скоро появится</span></div>';
+    if(x.cat==='drinks') c.classList.add('drink-card');
     c.innerHTML=`${img}<div class="dish-info"><h3>${x.name}</h3><span class="dish-price">${x.price}</span><div class="meta">${x.weight||'Вес уточняется'}</div><p>${x.desc}</p></div>`;
     if(src){c.querySelector("img")?.addEventListener("click",()=>openDishPhoto(src,x.name));c.querySelector("img")?.setAttribute("title","Нажмите, чтобы увеличить фото");c.querySelector("img")?.setAttribute("tabindex","0");c.querySelector("img")?.addEventListener("keydown",e=>{if(e.key==="Enter")openDishPhoto(src,x.name)})}
     list.appendChild(c)

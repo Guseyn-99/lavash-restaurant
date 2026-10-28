@@ -61,9 +61,16 @@
 @media(max-width:900px){.gallery{grid-template-columns:1.5fr 1fr!important;grid-template-rows:235px 235px!important}}
 @media(max-width:640px){.gallery{grid-template-columns:1fr 1fr!important;grid-template-rows:230px 170px!important}.gallery-main{grid-column:1/3!important;grid-row:1!important}.gallery figure:not(.gallery-main) img{object-position:center 22%}}
 
+/* Фасад целиком: сохраняем пропорции оригинального снимка на любом экране. */
+.hero-media img{aspect-ratio:1280 / 1070!important;object-fit:contain!important;object-position:center!important;background:#ecf0f0}
+@media(max-width:900px){.hero-media img{aspect-ratio:1280 / 1070!important;object-fit:contain!important}}
+
 /* Фото-карточки каталога */
 .menu-layout{display:block!important}.menu-visual{display:none!important}.menu-list{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}.menu-group-title{display:none!important}.menu-card.dish-card{display:flex;flex-direction:column;padding:0!important;overflow:hidden;border-radius:22px;background:#fffdf9;min-width:0}.dish-photo,.dish-placeholder{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f3ede5}.dish-placeholder{display:grid;place-items:center;color:#8b796b;font-size:15px}.dish-info{padding:17px 18px 19px;position:relative;flex:1}.dish-card h3{font-size:19px;line-height:1.24;padding-right:0;margin:0 0 10px}.dish-card .dish-price{font-weight:800;color:#db372a;font-size:20px;display:block;margin-bottom:6px}.dish-card .meta{margin-bottom:8px}.dish-card p{line-height:1.5;margin:0;color:#6a5a51;font-size:14px}.menu-card.dish-card .price{display:none}@media(max-width:900px){.menu-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:540px){.menu-list{gap:12px!important}.dish-info{padding:12px!important}.dish-card h3{font-size:15px!important}.dish-card .dish-price{font-size:17px!important}.dish-card p{font-size:12px!important}.dish-card .meta{font-size:12px!important}.dish-placeholder{font-size:12px}}
 
+/* FINAL: front image restores rounded full storefront, without letterboxing */
+.hero-media img{aspect-ratio: 1.08 / 1 !important;object-fit:cover!important;object-position:center center!important;background:transparent!important;border-radius:38px!important}
+@media(max-width:900px){.hero-media img{aspect-ratio:1.18 / 1!important;object-fit:cover!important;object-position:center!important}}
 /* Product cards */
 .dish-card .dish-photo{cursor:zoom-in;object-fit:cover;object-position:center}
 .dish-card .dish-photo:focus-visible{outline:3px solid #cc4c32;outline-offset:-4px}
@@ -83,22 +90,44 @@
 /* Delivery action occupies a separate row below both map links. */
 .contact-map-actions .contact-delivery-link{grid-column:1 / -1}
 
-/* Corrected home-page image: no background card or extra space */
-.hero{padding:34px 0 46px;overflow:hidden}
-.hero-grid{align-items:center}
-.hero-media{position:relative;min-width:0;min-height:0;height:auto;background:transparent;border:0;border-radius:0;box-shadow:none;padding:0;overflow:visible}
-.hero-media::before,.hero-media::after{content:none!important;display:none!important}
-.hero-media>img{display:block;width:100%;height:auto;aspect-ratio:1280/1070;object-fit:cover;object-position:center;background:transparent;border-radius:36px;box-shadow:var(--shadow)}
-.hero-badge{display:flex;left:16px;bottom:16px;z-index:1;background:#fff;border-radius:18px;padding:14px 18px}
-@media(max-width:900px){
-  .hero{padding:24px 0 36px}
-  .hero-media>img{aspect-ratio:1280/1070;border-radius:26px}
-  .hero-badge{left:12px;bottom:12px;padding:11px 13px;border-radius:14px}
+/* Restored homepage hero image (previous approved version) */
+.hero-media::before{display:none!important}
+.hero-media img{
+  aspect-ratio: 4 / 3 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
+  border-radius: 28px !important;
 }
-@media(max-width:640px){
-  .hero{padding:16px 0 30px}
-  .hero-grid{gap:22px}
-  .hero-media>img{border-radius:22px}
-  .hero-badge b{font-size:13px}
-  .hero-badge span{font-size:10px}
+.hero-badge{display:none!important}
+@media(max-width:900px){
+  .hero-media img{
+    aspect-ratio: 4 / 3 !important;
+    object-fit: contain !important;
+    border-radius: 24px !important;
+  }
+}
+
+/* Drinks: text-based catalog, fully responsive */
+.drinks-illustration{height:100%;min-height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(145deg,#3d2920,#211611);color:#fff9ee;text-align:center;padding:24px}
+.drinks-illustration span{letter-spacing:.2em;font-size:12px;color:#e9b45d;font-weight:750}
+.drinks-illustration strong{font-family:Georgia,serif;font-size:clamp(30px,5vw,52px)}
+.drinks-illustration small{font-size:14px;color:#e8d0b4}
+.drink-card{display:block!important;padding:0!important;overflow:hidden}
+.drink-card .dish-info{width:100%;padding:18px 20px!important}
+.drink-card .dish-info p{margin-bottom:0}
+@media(max-width:650px){.drinks-illustration{min-height:220px}}
+
+/* Compact homepage image, no outer pale poster canvas. */
+.hero-media{background:transparent!important;min-width:0;align-self:center}
+.hero-media::before{display:none!important}
+.hero-media img{display:block;width:100%;height:auto;aspect-ratio:1292 / 965!important;object-fit:cover!important;object-position:center!important;background:transparent!important;border-radius:30px!important;box-shadow:0 18px 42px rgba(45,28,18,.13)}
+@media(max-width:900px){.hero-media img{aspect-ratio:1292 / 965!important;border-radius:22px!important}}
+
+/* Final hero polish: hide baked-in gold and beige strips at image edges. */
+.hero-media { isolation:isolate; overflow:hidden; border-radius:30px; }
+.hero-media img { clip-path:inset(6px 4px 13px 4px round 28px) !important; }
+@media(max-width:900px){
+  .hero-media {border-radius:22px;}
+  .hero-media img {clip-path:inset(4px 3px 10px 3px round 21px) !important;}
 }
